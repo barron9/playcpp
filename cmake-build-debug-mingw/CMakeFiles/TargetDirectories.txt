@@ -1,0 +1,3 @@
+C:/Users/berkin1/CLionProjects/untitled/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
+C:/Users/berkin1/CLionProjects/untitled/cmake-build-debug-mingw/CMakeFiles/untitled.dir
+C:/Users/berkin1/CLionProjects/untitled/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir
