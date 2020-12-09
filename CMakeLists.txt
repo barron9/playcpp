@@ -11,6 +11,6 @@ find_package(CURL REQUIRED)
 #include_directories(${PROJECT_SOURCE_DIR})
 
 
-add_executable(untitled main.cpp)
+add_executable(untitled main.cpp employee.cpp employee.h)
 
 target_link_libraries(untitled D:/curl-7.73.0_5-win64-mingw/lib/libcurl.dll.a)

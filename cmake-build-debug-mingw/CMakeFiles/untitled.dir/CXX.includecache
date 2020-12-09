@@ -6,13 +6,9 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/berkin1/CLionProjects/untitled/main.cpp
-cstdio
--
-iostream
--
-cstring
--
-ctime
--
+C:/Users/berkin1/CLionProjects/untitled/employee.cpp
+employee.h
+C:/Users/berkin1/CLionProjects/untitled/employee.h
+
+C:/Users/berkin1/CLionProjects/untitled/employee.h
 

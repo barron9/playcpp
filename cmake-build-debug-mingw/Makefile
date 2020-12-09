@@ -142,6 +142,33 @@ untitled/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/build
 .PHONY : untitled/fast
 
+employee.obj: employee.cpp.obj
+
+.PHONY : employee.obj
+
+# target to build an object file
+employee.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/employee.cpp.obj
+.PHONY : employee.cpp.obj
+
+employee.i: employee.cpp.i
+
+.PHONY : employee.i
+
+# target to preprocess a source file
+employee.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/employee.cpp.i
+.PHONY : employee.cpp.i
+
+employee.s: employee.cpp.s
+
+.PHONY : employee.s
+
+# target to generate assembly for a file
+employee.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/employee.cpp.s
+.PHONY : employee.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -178,6 +205,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... untitled
+	@echo ... employee.obj
+	@echo ... employee.i
+	@echo ... employee.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

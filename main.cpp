@@ -3,10 +3,16 @@
 #include <iostream>
 #include <cstring>
 #include <ctime>
+
+#include "employee.h"
+
 /* Return 1 if c is part of string s; 0 otherwise */
 int is_in(char *s, char c[]);
 
+
 int main(void) {
+    employee e;
+    e.getwage();
     clock_t start, end;
     time_t startt,endt,timer;
     time(&timer);
@@ -16,7 +22,7 @@ int main(void) {
     char a[2][11];
     std::cout<<"type something to send buffer : "<< "\n";
     gets(c);
-    std::cout<<"what entered is : "<< strlen(c) <<"\n";
+    std::cout<<"what entered is in length of : "<< strlen(c) <<"\n";
 
     for(int y = 0 ; y<strlen(c);y++) std::cout<<c[y]<<"\n";
     strcpy(a[0], c);

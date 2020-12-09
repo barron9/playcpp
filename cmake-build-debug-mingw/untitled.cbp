@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/berkin1/CLionProjects/untitled/employee.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="C:/Users/berkin1/CLionProjects/untitled/employee.h">
+			<Option target="untitled"/>
+		</Unit>
 		<Unit filename="C:/Users/berkin1/CLionProjects/untitled/main.cpp">
 			<Option target="untitled"/>
 		</Unit>
