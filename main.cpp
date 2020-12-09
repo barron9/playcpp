@@ -1,8 +1,8 @@
-#include <stdio.h>
+#include <cstdio>
 //#include <curl/curl.h>
 #include <iostream>
 #include <cstring>
-#include "time.h"
+#include <ctime>
 /* Return 1 if c is part of string s; 0 otherwise */
 int is_in(char *s, char c[]);
 
@@ -10,14 +10,19 @@ int main(void) {
     clock_t start, end;
     time_t startt,endt,timer;
     time(&timer);
-    char s1[4]="ann";
-    char* a = s1;
-    char c[] = "asd" ;
 
-    std::cout<<"type something to send buffer : "<< strlen(s1) <<"\n";
-    std::cout<<"res : "<< is_in(a, c)<<"\n";
-    gets(s1);
-    std::cout<<"what entered is : "<< s1 <<"\n";
+
+    char c[] = "asd" ;
+    char a[2][11];
+    std::cout<<"type something to send buffer : "<< "\n";
+    gets(c);
+    std::cout<<"what entered is : "<< strlen(c) <<"\n";
+
+    for(int y = 0 ; y<strlen(c);y++) std::cout<<c[y]<<"\n";
+    strcpy(a[0], c);
+    strcpy(a[1], c);
+
+    std::cout<<"what entered is : "<< a[1] <<"\n";
 
     unsigned long int b = 0;
     start = clock();

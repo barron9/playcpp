@@ -7,12 +7,12 @@
 #IncludeRegexTransform: 
 
 C:/Users/berkin1/CLionProjects/untitled/main.cpp
-stdio.h
+cstdio
 -
 iostream
 -
 cstring
 -
-time.h
-C:/Users/berkin1/CLionProjects/untitled/time.h
+ctime
+-
 
