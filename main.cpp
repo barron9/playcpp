@@ -1,12 +1,23 @@
 #include <stdio.h>
 //#include <curl/curl.h>
 #include <iostream>
+#include <cstring>
 #include "time.h"
+/* Return 1 if c is part of string s; 0 otherwise */
+int is_in(char *s, char c[]);
 
 int main(void) {
     clock_t start, end;
     time_t startt,endt,timer;
     time(&timer);
+    char s1[4]="ann";
+    char* a = s1;
+    char c[] = "asd" ;
+
+    std::cout<<"type something to send buffer : "<< strlen(s1) <<"\n";
+    std::cout<<"res : "<< is_in(a, c)<<"\n";
+    gets(s1);
+    std::cout<<"what entered is : "<< s1 <<"\n";
 
     unsigned long int b = 0;
     start = clock();
@@ -42,5 +53,13 @@ int main(void) {
         *//* always cleanup *//*
         curl_easy_cleanup(curl);
     }*/
+    return 0;
+}
+int is_in(char *s, char c[])
+{
+    std::cout <<" -~~ "<< *s;
+    while(*s)
+        if(*s==c[0]) return 1;
+        else s++;
     return 0;
 }

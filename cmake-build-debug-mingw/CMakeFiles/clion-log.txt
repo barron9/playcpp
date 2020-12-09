@@ -1,4 +1,8 @@
 "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\berkin1\CLionProjects\untitled
 -- Configuring done
+CMake Error at CMakeLists.txt:14 (add_executable):
+  CXX_STANDARD is set to invalid value '89'
+
+
 -- Generating done
--- Build files have been written to: C:/Users/berkin1/CLionProjects/untitled/cmake-build-debug-mingw
+CMake Generate step failed.  Build files cannot be regenerated correctly.
