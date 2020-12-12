@@ -6,9 +6,27 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/berkin1/CLionProjects/untitled/employee.cpp
-employee.h
 C:/Users/berkin1/CLionProjects/untitled/employee.h
 
+C:/Users/berkin1/CLionProjects/untitled/main.cpp
+cstdio
+-
+iostream
+-
+cstring
+-
+ctime
+-
+windows.h
+-
+mmsystem.h
+-
+winbase.h
+-
+mmdeviceapi.h
+-
+advpub.h
+-
+employee.h
 C:/Users/berkin1/CLionProjects/untitled/employee.h
 
