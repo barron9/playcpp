@@ -10,7 +10,7 @@
 #include <mmdeviceapi.h>
 #include <advpub.h>
 #include <aclui.h>
-
+#include <commctrl.h>
 #include "employee.h"
 
 /* Return 1 if c is part of string s; 0 otherwise */
@@ -27,7 +27,7 @@ DWORD VolumeValue(const int percentage) {
     const DWORD retVal = ((wVol << 16) | wVol);
     return retVal;
 }
-
+HWND hwndPB;
 int main(void) {
     const CLSID CLSID_MMDeviceEnumerator = __uuidof(MMDeviceEnumerator);
     const IID IID_IMMDeviceEnumerator = __uuidof(IMMDeviceEnumerator);
@@ -59,25 +59,24 @@ int main(void) {
     HWND hwnd = CreateWindowEx(
             0,                              // Optional window styles.
             (LPSTR) CLASS_NAME,                     // Window class
-            (LPSTR) "BASS BOOSTER 2021 - 15 DAY TRIAL",    // Window text
+            (LPSTR) "",    // Window text
             (WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU),            // Window style
 
             // Size and position
-            CW_USEDEFAULT, CW_USEDEFAULT, 450, 500,
+            CW_USEDEFAULT, CW_USEDEFAULT, 450, 100,
 
             NULL,       // Parent window
             NULL,       // Menu
             hInstance,  // Instance handle
             NULL        // Additional application datav
     );
-    HWND textbox = CreateWindow("STATIC", "ACTIVATE PRODUCT", WS_VISIBLE | WS_CHILD, 10, 0, 420, 20, hwnd,
-                                NULL, NULL, NULL);
-    CreateWindow("EDIT", "", WS_VISIBLE | WS_CHILD | WS_BORDER, 10, 40, 420, 20, hwnd, NULL, NULL, NULL);
-    CreateWindow("EDIT", "", WS_VISIBLE | WS_CHILD | WS_BORDER | ES_PASSWORD, 10, 70, 420, 20, hwnd, NULL, NULL, NULL);
+   // HWND textbox = CreateWindow("STATIC", "ACTIVATE PRODUCT", WS_VISIBLE | WS_CHILD, 10, 0, 420, 20, hwnd,
+                              //  NULL, NULL, NULL);
+   // CreateWindow("EDIT", "", WS_VISIBLE | WS_CHILD | WS_BORDER, 10, 40, 420, 20, hwnd, NULL, NULL, NULL);
+   // CreateWindow("EDIT", "", WS_VISIBLE | WS_CHILD | WS_BORDER | ES_PASSWORD, 10, 70, 420, 20, hwnd, NULL, NULL, NULL);
     // SendMessageA( textbox,WM_CTLCOLORSTATIC ,0,0);
-
-    CreateWindow("BUTTON", "ACTIVATE PRODUCT", WS_VISIBLE | WS_CHILD | WS_BORDER, 10, 100, 420, 20, hwnd, (HMENU)10000, NULL,NULL);
-
+     hwndPB =CreateWindowEx(0,PROGRESS_CLASS,(LPTSTR) NULL, WS_VISIBLE | WS_CHILD | WS_BORDER, 10, 0, 420, 20, hwnd, (HMENU)10000, NULL,NULL);
+    CreateWindow("BUTTON", "Format Card", WS_VISIBLE | WS_CHILD | WS_BORDER, 10, 40, 420, 20, hwnd, (HMENU)10000, NULL,NULL);
     if (hwnd == NULL) {
         return 0;
     }
@@ -85,7 +84,7 @@ int main(void) {
     UpdateWindow(hwnd);
     MSG msg;
     static TCHAR szAppName[] = TEXT("error");
-    MessageBox(NULL, TEXT("Sending Failure. Please retry"), szAppName, MB_ICONERROR);
+   // MessageBox(NULL, TEXT("Sending Failure. Please retry"), szAppName, MB_ICONERROR);
     while (GetMessageW(&msg, NULL, 0, 0)) {
         TranslateMessage(&msg);
         DispatchMessageW(&msg);
@@ -115,7 +114,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
         case WM_COMMAND: {
 
             if (LOWORD(wParam) == 10000) {
-                MessageBox(hWnd, TEXT("no account found"), TEXT(""), 0);
+                SendMessage(hwndPB, PBM_STEPIT, 0, 0);
+               // MessageBox(hWnd, TEXT("no account found"), TEXT("AA"), 0);
+                SendMessage(hwndPB, PBM_STEPIT, 0, 0);
+
             }
             break;
         }
