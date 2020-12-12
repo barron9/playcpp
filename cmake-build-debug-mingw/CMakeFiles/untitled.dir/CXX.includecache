@@ -23,6 +23,8 @@ mmsystem.h
 -
 winbase.h
 -
+initguid.h
+-
 mmdeviceapi.h
 -
 combaseapi.h
@@ -32,6 +34,8 @@ advpub.h
 aclui.h
 -
 commctrl.h
+-
+functiondiscoverykeys_devpkey.h
 -
 employee.h
 C:/Users/berkin1/CLionProjects/untitled/employee.h

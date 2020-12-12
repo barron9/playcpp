@@ -6,12 +6,13 @@
 #include <windows.h>
 #include <mmsystem.h>
 #include <winbase.h>
-
+#include <initguid.h>
 #include <mmdeviceapi.h>
 #include "combaseapi.h"
 #include <advpub.h>
 #include <aclui.h>
 #include <commctrl.h>
+#include <functiondiscoverykeys_devpkey.h>
 #include "employee.h"
 
 /* Return 1 if c is part of string s; 0 otherwise */
@@ -32,9 +33,9 @@ DWORD VolumeValue(const int percentage) {
 HWND hwndPB;
 
 int main(void) {
-    int deviceCount=1;
+    int deviceCount=3;
     LPWSTR wstrID = NULL;
-    DWORD state = NULL;
+  //  DWORD state = NULL;
     const CLSID CLSID_MMDeviceEnumerator = __uuidof(MMDeviceEnumerator);
     const IID IID_IMMDeviceEnumerator = __uuidof(IMMDeviceEnumerator);
     void *pEnumerator;
@@ -56,12 +57,26 @@ int main(void) {
         std::cout << "S_OK";
     }
 
-
+    IPropertyStore *pProps = NULL;
     pDevices->Item(deviceCount, &pDevice);
     pDevice->GetId(&wstrID);
-    pDevice->GetState(&state);
+  //  pDevice->GetState(&state);
+    hrr = pDevice->OpenPropertyStore(STGM_READ, &pProps);
+    PROPVARIANT varName;
+    // Initialize container for property value.
+    PropVariantInit(&varName);
 
-    std::cout << " "<<state;
+    static PROPERTYKEY key;
+
+
+    // Get the endpoint's friendly-name property.
+
+    hrr = pProps->GetValue(
+            PKEY_Device_FriendlyName, &varName);
+    if(hrr==0){
+        std::wcout << varName.pwszVal;
+    }
+
     return 0;
 }
 
