@@ -33,9 +33,10 @@ DWORD VolumeValue(const int percentage) {
 HWND hwndPB;
 
 int main(void) {
-    int deviceCount=3;
+    for (int u = 0; u < 5; u++) {
+    int deviceCount = u;
     LPWSTR wstrID = NULL;
-  //  DWORD state = NULL;
+    //  DWORD state = NULL;
     const CLSID CLSID_MMDeviceEnumerator = __uuidof(MMDeviceEnumerator);
     const IID IID_IMMDeviceEnumerator = __uuidof(IMMDeviceEnumerator);
     void *pEnumerator;
@@ -43,24 +44,25 @@ int main(void) {
     IMMDeviceEnumerator *pEnum = NULL;
     IMMDevice *pDevice;
     CoInitialize(NULL);
-    HRESULT hr0 = CoCreateInstance(__uuidof(MMDeviceEnumerator), NULL, CLSCTX_ALL, __uuidof(IMMDeviceEnumerator),(void **) &pEnum);
-    if(hr0 != 0){
-        std::cout<< hr0 ;
-    }else{
-        std::cout << "S_OK";
+    HRESULT hr0 = CoCreateInstance(__uuidof(MMDeviceEnumerator), NULL, CLSCTX_ALL, __uuidof(IMMDeviceEnumerator),
+                                   (void **) &pEnum);
+    if (hr0 != 0) {
+        //std::cout<< hr0 ;
+    } else {
+        //  std::cout << "S_OK";
     }
 
     HRESULT hrr = pEnum->EnumAudioEndpoints(eAll, DEVICE_STATE_ACTIVE, &pDevices);
-    if(hrr != 0){
-        std::cout << "error";
-    }else{
-        std::cout << "S_OK";
+    if (hrr != 0) {
+        // std::cout << "error";
+    } else {
+        //  std::cout << "S_OK";
     }
 
     IPropertyStore *pProps = NULL;
     pDevices->Item(deviceCount, &pDevice);
     pDevice->GetId(&wstrID);
-  //  pDevice->GetState(&state);
+    //  pDevice->GetState(&state);
     hrr = pDevice->OpenPropertyStore(STGM_READ, &pProps);
     PROPVARIANT varName;
     // Initialize container for property value.
@@ -73,10 +75,10 @@ int main(void) {
 
     hrr = pProps->GetValue(
             PKEY_Device_FriendlyName, &varName);
-    if(hrr==0){
-        std::wcout << varName.pwszVal;
+    if (hrr == 0) {
+        std::wcout << varName.pwszVal<<std::endl;
     }
-
+}
     return 0;
 }
 
